@@ -21,7 +21,8 @@ const InputFieldNumber = (props) =>{
         valueCurrency,
         paddingLeft,
         width,
-        height
+        height,
+        status
     } = props
 
 
@@ -32,6 +33,8 @@ const InputFieldNumber = (props) =>{
                    className={classNames(
                        classes.input,
                        notArrow && classes.notArrow,
+                       status ==='warning' && classes.warning,
+                        status === "error" && classes.error,
                     )}
                     style={{
                         paddingLeft: paddingLeft,

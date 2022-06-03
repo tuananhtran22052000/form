@@ -10,6 +10,8 @@ import FieldTextarea from '../FieldTextarea'
 
 const InputField = (props) =>{
     const {
+        type,
+        status,
         name,
         onChange,
         value,
@@ -24,7 +26,7 @@ const InputField = (props) =>{
         valueCurrency,  
         step, //
 
-        type,
+        
         src, //icon đầu input ( vd: icon passwors,userName )
         onKeyDown,
         onClose, //close value
@@ -58,6 +60,7 @@ const InputField = (props) =>{
 
 InputField.propTypes = {
         type:PropTypes.string.isRequired,
+        status:PropTypes.string.isRequired, // warning, error thì có border-color khác nhau
         name: PropTypes.string.isRequired,
         value: PropTypes.string.isRequired,
         onChange: PropTypes.func.isRequired,

@@ -60,7 +60,7 @@ const BasicForm = () =>{
                         // onKeyDown={HandelEnterDown}
                         srcClearAll={close}
                         onClose={HandleClose}
-                        h40
+                        status={'error'}
                     />
                 </div>
                 <div className={classes.row}>

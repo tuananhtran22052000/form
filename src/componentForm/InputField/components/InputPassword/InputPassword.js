@@ -16,7 +16,8 @@ const InputPassword = (props) =>{
         onKeyDown,
         src,
         width,
-        height
+        height,
+        status
     } = props
 
 
@@ -38,7 +39,10 @@ const InputPassword = (props) =>{
                          width: width,
                          height: height,
                     }}
-                    className={classNames(classes.input)}
+                    className={classNames(classes.input,
+                        status ==='warning' && classes.warning,
+                        status === "error" && classes.error
+                    )}
                     placeholder={placeholder}
                     type={inputType}
                     name={name}

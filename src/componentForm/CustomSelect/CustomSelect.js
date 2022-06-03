@@ -8,12 +8,12 @@ import Box from '../icon/Box.svg'
 const CustomSelect = (props) =>{
     const {
         data,
-        dropTop
+        dropTop,
+        dropAuto
     } = props
                                               
     const [value, setValue] = useState('defaultValue')
     const [isToggle, setIsToggle] = useState(false)
-   
 
     const HandleClick = () =>{
         setIsToggle(!isToggle)
@@ -36,6 +36,7 @@ const CustomSelect = (props) =>{
             </div>
             {data.length !==0
                 ?<>
+                    
                     <div className={classNames(classes.content, isToggle===true ? classes.show : classes.unShow, dropTop && classes.showTop)}>
                         {data.map((item,key) =>(
                             <p 

@@ -17,7 +17,8 @@ const InputType = (props) =>{
         value,
         onChange,
         onKeyDown,
-        onClose
+        onClose,
+        status,
     } = props
     return(
         <div className={classes.container}>
@@ -27,7 +28,10 @@ const InputType = (props) =>{
                             style={{
                                 paddingLeft: paddingLeft,
                             }}
-                            className={classNames(classes.input)}
+                            className={classNames(classes.input,
+                                status ==='warning' && classes.warning,
+                                status === "error" && classes.error
+                            )}
                             placeholder={placeholder}
                             type={type}
                             min={min}

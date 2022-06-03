@@ -39,9 +39,11 @@
                 border-color: #1890ff;
             }
         }
-        .h40{
-            height: 40px;
-            font-size: 18px;
+        .warning{
+            border-color: #faad14;
+        }
+        .error{
+            border-color: #ff4d4f;
         }
     }
     .showPass{

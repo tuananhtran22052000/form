@@ -25,6 +25,7 @@
     }
     .content{
         width: 100%;
+        position: relative;
         // border: 1px solid #000;
         .title{
             margin: 0;
@@ -42,13 +43,18 @@
             }
         }
         .show{
+            width: 100%;
+            background-color: #fff;
+            z-index: 99;
            display: block;
            transition: 1s;
           
            transform: translateY( 0 ) ;
         }
         .unShow{
-            visibility: hidden;
+            // visibility: hidden;
+            
+            display: none;
             border: none;
             transform: translateY( -5px) ;
         }

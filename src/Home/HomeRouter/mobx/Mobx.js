@@ -3,31 +3,32 @@ import Main from './components/Main'
 
 import SelectDropdown from '../../../componentForm/SelectDropdown'
 import CustomSelect from '../../../componentForm/CustomSelect'
+import CustomInputNumber from '../../../componentForm/CustomInputNumber'
 
 const data = [{
     id:1,
-    title:'anh1'
+    title:'ánh1'
 },{
     id:2,
-    title:'anh2'
+    title:'tuan anh'
 },{
     id:3,
-    title:'anh3'
+    title:'tanh3'
 },{
     id:4,
-    title:'anh4'
+    title:'tuan anh tran'
 },{
     id:5,
-    title:'anh5'
+    title:'tanh5'
 },{
     id:6,
-    title:'anh6'
+    title:'tanh6'
 },{
     id:7,
-    title:'anh1'
+    title:'tanh1'
 },{
     id:8,
-    title:'anh7'
+    title:'tanh7'
 },{
     id:8,
     title:'ánh1'
@@ -45,8 +46,9 @@ const Mobx = () =>{
             <div>
                 {/* <Main /> */}
             </div>
+           
+            <div style={{margin:' 0 auto', display:'flex'}}>
             <div style={{width:'500px'}}>
-                select
                 <SelectDropdown 
                     data={data}
                     height={'40px'}
@@ -54,8 +56,7 @@ const Mobx = () =>{
                     // multiple
                 />
             </div>
-            <div style={{margin:' 0 auto'}}>
-            <div style={{width:'200px',marginLeft:'300px'}}>
+            <div style={{width:'500px',marginLeft:'300px'}}>
                 <CustomSelect 
                     // dropTop
                     data={data}
@@ -63,7 +64,16 @@ const Mobx = () =>{
                 />
             </div>
             </div>
-            
+            <div style={{width:'150px'}}>
+                <CustomInputNumber 
+                    // notArrow
+                    placeholder={""}
+                    minNumber={1}
+                    maxNumber={10}
+                    step={0.5}
+                />
+            </div>
+
         </>
     )
 }

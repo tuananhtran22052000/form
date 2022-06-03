@@ -1,5 +1,6 @@
 import React,{forwardRef} from 'react'
 import classes from './FieldTextarea.module.scss'
+import classNames from 'classnames'
 
 const FieldTextarea = (props,ref) =>{
     const {
@@ -9,13 +10,17 @@ const FieldTextarea = (props,ref) =>{
         value,
         placeholder,
         onChange,
-        showCount
+        showCount,
+        status
     } = props
     return(
         <div className={classes.container}>
             <div className={classes.content}>
                 <textarea 
-                className={classes.textarea}
+                className={classNames(classes.textarea,
+                    status ==='warning' && classes.warning,
+                    status === "error" && classes.error    
+                )}
                     rows={rows}
                     cols={cols}
                     maxLength={maxLength}

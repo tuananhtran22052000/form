@@ -17,6 +17,12 @@
                 height: 100%;
               } 
         }
+        .warning{
+            border-color: #faad14;
+        }
+        .error{
+            border-color: #ff4d4f;
+        }
         .contentCurrency{
             margin: 0;
             position: absolute;

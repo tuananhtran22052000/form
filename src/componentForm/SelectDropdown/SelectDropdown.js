@@ -1,7 +1,9 @@
-import React, { useState,useRef } from 'react'
+import React, { useState,useRef,useEffect } from 'react'
 import classes from './SelectDropdown.module.scss'
 import classNames from 'classnames'
 import PropTypes from 'prop-types'
+
+import {removeVietnameseTones} from '../removeVietnameseTones/removeVietnameseTones'
 
 import arrow from '../icon/arrow.svg'
 import Box from '../icon/Box.svg'
@@ -14,7 +16,8 @@ const SelectDropdown = (props) =>{
         placeholder,
         multiple
     } = props
-    
+   
+
     const InputRef = useRef()
 
     const [ valueSearch, setValueSearch] = useState('') 
@@ -24,8 +27,11 @@ const SelectDropdown = (props) =>{
 
     const HandleChange = (e) =>{
         const search = e.target.value;
+       
         const newData = data.filter((value) =>{
-            return value.title.includes(search)
+            const checkValue = removeVietnameseTones(search).toLowerCase()
+           const test = removeVietnameseTones(value.title).toLowerCase()
+            return test.includes(checkValue) 
         })
         if(search===""){
             setFilterData([]);
@@ -52,7 +58,6 @@ const SelectDropdown = (props) =>{
         
         setShow(false)
     }
-
     
 
     return(
