@@ -61,6 +61,7 @@ const Mobx = () =>{
                     // dropTop
                     data={data}
                     defaultValue={'chọn Option'}
+
                 />
             </div>
             </div>

@@ -30,7 +30,7 @@ const SelectDropdown = (props) =>{
        
         const newData = data.filter((value) =>{
             const checkValue = removeVietnameseTones(search).toLowerCase()
-           const test = removeVietnameseTones(value.title).toLowerCase()
+            const test = removeVietnameseTones(value.title).toLowerCase()
             return test.includes(checkValue) 
         })
         if(search===""){
@@ -73,7 +73,6 @@ const SelectDropdown = (props) =>{
                     onClick={HandleShowItem}
                     placeholder={placeholder}
                     ref={InputRef}
-                    
                 />
                 
                 <img src={arrow} alt='' className={classNames(classes.icon,show===true ? classes.IconShow : classes.IconUnShow)} onClick={HandleShow} />

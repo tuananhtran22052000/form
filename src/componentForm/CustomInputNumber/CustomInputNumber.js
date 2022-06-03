@@ -11,6 +11,7 @@ const CustomInputNumber = (props) =>{
         minNumber,
         maxNumber,
         step,
+        height,
     } = props
 
     const [number, setNumber] = useState(0)
@@ -38,6 +39,7 @@ const CustomInputNumber = (props) =>{
             <div className={classes.content}>
                 <input 
                     type={'number'} 
+                    style={{height: height}}
                     className={classNames(classes.input,
                         notArrow && classes.inputPbr
                     )}
