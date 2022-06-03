@@ -1,0 +1,45 @@
+
+.container{
+    .row{
+        display: flex;
+        align-items: center;
+        .input{
+            padding: 0 15px;
+            width: calc( 100% - 15px);
+            position: relative;  
+            &::-webkit-outer-spin-button,
+            &::-webkit-inner-spin-button {
+                -webkit-appearance: inner-spin-button !important;
+                width: 30px;
+                position: absolute;
+                top: 0;
+                right: 0;
+                height: 100%;
+              } 
+        }
+        .contentCurrency{
+            margin: 0;
+            position: absolute;
+            top: 25%;
+            left: 5px;
+        }
+        .h40{
+            height: 40px;
+            font-size: 18px;
+        }
+        .notArrow{
+            &::-webkit-outer-spin-button,
+            &::-webkit-inner-spin-button{
+                -webkit-appearance: none;
+                margin: 0;
+            }
+        }
+        .content{
+            .select{
+                height: 44px;
+                border: 2px solid #000;
+            }
+        }
+    }
+    
+}

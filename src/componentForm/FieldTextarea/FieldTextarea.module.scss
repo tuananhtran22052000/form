@@ -1,0 +1,11 @@
+.container{
+    width: 100%;
+    .content{
+        display: flex;
+        align-items: end;
+        .showCount{
+            margin: 0;
+
+        }
+    }
+}

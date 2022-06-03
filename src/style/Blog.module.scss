@@ -1,0 +1,28 @@
+.container{
+    width: 100%;
+    .banner{
+        .img{
+            height: calc(100vh - 63px);
+            width: 100%;
+        }
+    }
+
+    .title{
+        font-size: 30px;
+        font-weight: bold;
+        margin: 10px 0;
+        padding-left: 20px;
+    }
+    .content{
+        max-width: 1400px;
+        width: 100%;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        flex-flow: wrap;
+        .contentItem{
+           width: calc((100% - 40px) / 3); 
+        }
+        
+    }
+}

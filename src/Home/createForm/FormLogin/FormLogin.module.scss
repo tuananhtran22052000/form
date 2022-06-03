@@ -1,0 +1,58 @@
+.container{
+    border: 3px solid #000;
+    margin-top: 50px;
+    padding: 10px;
+    width: 550px;
+    padding: 0 20px;
+    .title{
+        text-align: center;
+        font-size: 30px;
+        color: crimson;
+        margin: 10px 0;
+        font-weight: bold;
+    }
+    .content{
+        display: flex;
+        justify-content: space-between;
+        .row{
+            position: relative;
+            .input{
+                padding: 0 30px;
+                width: 200px;
+                height: 30px;
+                outline: none;
+                &:focus{
+                    outline: solid;
+                    outline-width: 2px;
+                    outline-color: #ff5500;
+                }
+            }
+            .icon{
+                z-index: 3;
+                width: 16px;
+                height: 16px;
+                position:absolute;
+                top: 10px;
+                left: 10px;
+            }
+            
+        }
+        
+    }
+    .contentBtn{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 10px 0;
+        .btn{
+            width: 100%;
+            height: 40px;
+            outline: none;
+            border: none;
+            border-radius: 5px;
+            background-color: #1890ff;
+            color: aliceblue;
+            cursor: not-allowed;
+        }
+    }
+}

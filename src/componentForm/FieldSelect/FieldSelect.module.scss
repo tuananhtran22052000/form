@@ -1,0 +1,40 @@
+.container{
+    width: 100%;
+    .content{
+        display: flex;
+        line-height: 3;
+        background: #fff;
+        overflow: hidden;
+        border-radius: 4px;
+
+        
+        background-color: white;
+        width: 200px;
+        height: 50px;
+        position: relative;
+        margin: 0 auto;
+        .select{
+        
+            // -webkit-appearance: none;
+            // -moz-appearance: none;
+            // -o-appearance: none;
+
+
+            outline: 0;
+            box-shadow: none;
+            border: 0 !important;
+            background: #00000030;
+            flex: 1;
+            padding: 0 10px;
+            color: #000;
+            cursor: pointer;
+            .option{
+                background-color: white;
+            }
+        }
+
+        &:hover::after {
+            color: #000;
+          }
+    }
+}
