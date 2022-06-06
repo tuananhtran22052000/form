@@ -18,15 +18,15 @@ const FormLayout = () =>{
                 <div className={classNames(classes.content,formLayOut==='Inline' && classes.active)}
                     onClick={() => setFormLayOut('Inline')}
                 >Inline</div>
-            </div>
+            </div>                
             <div className={classNames(classes.contentForm, formLayOut==='Inline' && classes.contentFormRow)}>
                 <div className={classNames(formLayOut==='Vertical' && classes.content,
-                    formLayOut==='Horizontal' && classes.contentRow
+                    formLayOut==='Horizontal' && classes.contentRow               
                 )}>
-                    <label className={classes.label}>Field A:</label>
+                    <label className={classes.label}>Field A:</label>               
                     <InputField
                          h40
-                         paddingLeft={'5px'}
+                         paddingLeft={'5px'}                  
                          type={'text'}
                     />
                 </div>
@@ -36,7 +36,7 @@ const FormLayout = () =>{
                     <label className={classes.label}>Field B:</label>
                     <InputField
                          type={'text'}
-                         h40
+                         h40                                      
                          paddingLeft={'5px'}
                          
                     />
