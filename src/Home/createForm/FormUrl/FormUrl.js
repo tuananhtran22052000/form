@@ -35,6 +35,9 @@ const FormUrl = () =>{
         setDescribe('text')
     }
    }
+   const HandleClear = () =>{
+    setTitle('')
+   }
    useEffect(() =>{
        console.log(isToggle)
    })
@@ -49,6 +52,7 @@ const FormUrl = () =>{
                   onChange={(e) =>{setTitle(e.target.value)}}
                 /> */}
                 <InputField 
+                    onClose={HandleClear}
                     placeholder={'https://example.com'}
                     value={title}
                     onChange={(e) =>{setTitle(e.target.value)}}

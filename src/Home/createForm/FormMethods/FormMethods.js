@@ -44,13 +44,18 @@ const FormMethods = () =>{
     console.log('grenDer',select)
     console.log('note',title)
    }
+
+   const handleClear =()=>{
+    setTitle('')
+   }
   
     return(
         <div className={classes.container}>
             <div className={classes.content}>
                 <div className={classes.row}>
                     <label className={classes.label}>Note:</label>
-                    <InputField type='text' 
+                    <InputField type='text'
+                    onClose={handleClear} 
                         placeholder='nhập nội dung'
                         value={title}
                         onChange={e =>setTitle(e.target.value)}

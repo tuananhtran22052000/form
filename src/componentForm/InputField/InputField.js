@@ -11,39 +11,6 @@ import FieldTextarea from '../FieldTextarea'
 const InputField = (props) =>{
     const {
         type,
-        status,
-        name,
-        onChange,
-        value,
-        placeholder,
-        
-        numberMax,
-        numberMin,
-        notArrow,
-        data,
-        onChangeSelect,
-        currency,
-        valueCurrency,  
-        step, //
-
-        
-        src, //icon đầu input ( vd: icon passwors,userName )
-        onKeyDown,
-        onClose, //close value
-        paddingLeft,
-        height,
-        width,
-
-        titleSearch,
-        mic,
-        search,
-        brg,
-        border,
-
-        rows,
-        cols,
-        maxLength,
-        showCount,
     } = props
     if(type === 'password'){
         return <InputPassword {...props} />

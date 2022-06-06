@@ -27,6 +27,7 @@ const FormLayout = () =>{
                     <InputField
                          h40
                          paddingLeft={'5px'}
+                         type={'text'}
                     />
                 </div>
                 <div className={classNames(formLayOut==='Vertical' && classes.content,
@@ -37,6 +38,7 @@ const FormLayout = () =>{
                          type={'text'}
                          h40
                          paddingLeft={'5px'}
+                         
                     />
                 </div>
             </div>
