@@ -28,9 +28,10 @@ const CustomSelect = (props) =>{
     return(
         <div className={classes.container}>
              <img src={arrow} alt='' className={classNames(classes.icon, isToggle===true ? classes.IconShow : classes.IconUnShow)}/>
-            <div className={classes.ContentValue}
+                <div className={classes.ContentValue}
                 onClick={HandleClick}
                 value={value}
+
             >
                 {value}
             </div>

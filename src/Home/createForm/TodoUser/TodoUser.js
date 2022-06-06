@@ -59,7 +59,7 @@ const TodoUser = () =>{
                     <div className={classes.row}>
                         <img src={padLock} alt='' className={classes.icon} />
                         <InputField 
-                            status={'password'}
+                            type={'password'}
                             placeholder={'password' }
                             value={password}
                             onChange={e => setPassword(e.target.value)}

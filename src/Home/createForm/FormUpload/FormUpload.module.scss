@@ -1,0 +1,12 @@
+.textarea{
+    resize: none;
+    &:focus{
+        background-color: #bfbfbf;
+    }
+    &:valid{
+        background-color: #bfbfbf;
+    }
+    &::-webkit-scrollbar{
+        width: 0;
+    }
+}

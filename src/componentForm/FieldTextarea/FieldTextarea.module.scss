@@ -1,17 +1,40 @@
 .container{
     width: 100%;
     .content{
-        display: flex;
-        align-items: end;
+        // display: flex;
+        // align-items: end;
+        position: relative;
+        .textarea{
+            width: calc(100% - 30px);
+            height: 100%;
+            padding: 0 20px 0 10px;
+            resize: none;
+           &:focus{
+            border-color: #40a9ff5e;
+            box-shadow: 0 0 0 1px #40a9ff;
+            border-right-width: 1px;
+            outline: 0;
+           }
+        }
         .showCount{
             margin: 0;
-
+            position: absolute;
+            right: 0 ;
+            bottom: -25px;
         }
         .warning{
             border-color: #faad14;
         }
         .error{
             border-color: #ff4d4f;
+        }
+        .imgClose{
+            width: 16px;
+            height: 16px;
+            position: absolute;
+            top: 50%;
+            right: 0;
+            opacity: 0.2;
         }
     }
 }

@@ -4,13 +4,14 @@ import Main from './components/Main'
 import SelectDropdown from '../../../componentForm/SelectDropdown'
 import CustomSelect from '../../../componentForm/CustomSelect'
 import CustomInputNumber from '../../../componentForm/CustomInputNumber'
+import TestSwitch from '../../../../src/Home/createForm/TestSwitch'
 
 const data = [{
     id:1,
     title:'ánh1'
 },{
     id:2,
-    title:'tuan anh'
+    title:'tuấn anh'
 },{
     id:3,
     title:'tanh3'
@@ -37,7 +38,7 @@ const data = [{
     title:'nhật ánh'
 },{
     id:10,
-    title:'tuấn anh'
+    title:'tuan anh'
 }]
 // const data=[]
 const Mobx = () =>{
@@ -72,9 +73,12 @@ const Mobx = () =>{
                     minNumber={1}
                     maxNumber={10}
                     step={0.5}
+                    status={'error'}
                 />
             </div>
-
+            <div>
+                {/* <TestSwitch /> */}
+            </div>
         </>
     )
 }

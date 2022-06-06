@@ -3,7 +3,8 @@ import classes from './CallApi.module.scss'
 import axios from 'axios'
 
 import InputFieldNumber from '../../../componentForm/InputFieldNumber'
-
+import CustomButton from '../../../createButton/CustomButton'
+import FormInputNumber from '../../createForm/FormInputNumber'
 
 
 const dataMoney = ["Dola","Euro","yên"]
@@ -18,7 +19,6 @@ const dataMoney = ["Dola","Euro","yên"]
 //     id:3,
 //     title: "yên"
 // }]
-
 const CallApi = () =>{
     const [data, setData] = useState([])
     const [title, setTitle] = useState("")
@@ -90,9 +90,12 @@ const CallApi = () =>{
                 />
                 
             </div>
-            {/* <SelectDropdown 
-                data={dataTest}
-            /> */}
+            <div style={{display:'flex'}}>
+                <input type="text" /><CustomButton>click</CustomButton>
+            </div>
+            <div style={{width:'600px'}}>
+                <FormInputNumber />
+            </div>
         </div>
     )
 }

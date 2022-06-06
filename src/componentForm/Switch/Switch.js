@@ -26,7 +26,11 @@ const Switch = (props) =>{
                         checked={checked} 
                         onChange={onChange}
                     />
-                    <span className={classNames(classes.slider, classes.round, checked ===true ? classes.text : classes.textarea)}>{describe}</span>
+                    <span 
+                        className={classNames(classes.slider, classes.round, checked ===true ? classes.text : classes.textarea)}
+                    >
+                        {describe}
+                    </span>
                 </label>
 
             </div> 

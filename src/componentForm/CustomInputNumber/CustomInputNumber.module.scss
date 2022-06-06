@@ -4,7 +4,7 @@
         position: relative;
         .input{
             height: 40px;
-            width: 100px;
+            width: calc(100% - 40px);
             border-width: 1px;
             border-color: #00000026;
             outline: none;
@@ -18,14 +18,20 @@
             }
 
         }
-        .inputPbr{
-            padding-right: 10px;
+        // .inputPbr{
+        //     padding-right: 10px;
+        // }
+        .warning{
+            border-color: #faad14;
+        }
+        .error{
+            border-color: #ff4d4f;
         }
         .contentRow{
             display: flex;
             flex-direction: column;
             position: absolute;
-            right: 7px;
+            right: -2px;
             top: 0;
             bottom: 0;
             .arrow{
