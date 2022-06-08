@@ -36,11 +36,14 @@ const data = [{
     title:'tuan anh'
 }]
 
-const TestAntDesign= () =>{
+const TestAntDesign= (props) =>{
+    // const {
+    //     multiple
+    // } = props
     const [valueInput, setValueInput] = useState([])
     const [valueSearch, setValueSearch] = useState("")
     const [show, setShow] = useState(false)
-
+    const multiple = false
     const HandleClickInput = () =>{
         setShow(!show)
     }
@@ -49,11 +52,13 @@ const TestAntDesign= () =>{
     }
     const HandleClickItem = (item) =>{
         const value = item.title;
-        if(valueInput.includes(value) !== true){
-            setValueInput(
-                [...valueInput, value]
-            )
-        }
+            if(valueInput.includes(value) !== true){
+                setValueInput(
+                    [...valueInput, value]
+                )
+            }
+        
+        
     }
     const handleClear = (index) =>{
         const newValueInput = [...valueInput];
