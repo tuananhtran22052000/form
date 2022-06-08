@@ -1,1 +1,8 @@
-@import '../../../InputField//InputField.module.scss'
+@import '../../../InputField//InputField.module.scss';
+.content{
+    display: flex;
+    align-items: center;
+    .text{
+        margin: 0;
+    }
+}

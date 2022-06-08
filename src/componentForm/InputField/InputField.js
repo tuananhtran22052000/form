@@ -37,6 +37,9 @@ InputField.propTypes = {
         paddingLeft: PropTypes.string.isRequired,
         width: PropTypes.string.isRequired,
         height: PropTypes.string.isRequired,
+        addonAfter: PropTypes.string.isRequired,
+        addonBefore: PropTypes.string.isRequired,
+        id: PropTypes.string.isRequired,
     //input number
         numberMax: PropTypes.number.isRequired,
         numberMin: PropTypes.number.isRequired,

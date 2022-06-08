@@ -19,11 +19,16 @@ const InputType = (props) =>{
         onKeyDown,
         onClose,
         status,
+        id,
+        addonAfter,
+        addonBefore,
+        close
     } = props
     return(
         <div className={classes.container}>
             <label className={classes.content}>
             {src? <img src={src} alt='' className={classes.img} /> : <></>}
+                        <p className={classes.text}>{addonAfter}</p>
                         <input 
                             style={{
                                 paddingLeft: paddingLeft,
@@ -42,7 +47,8 @@ const InputType = (props) =>{
                             onChange={onChange}
                             onKeyDown={onKeyDown}
                         />
-                        { value 
+                        <p className={classes.text}>{addonBefore}</p>
+                        {close && value 
                             ? <img src={close}  
                                 alt='' className={classes.imgClose} 
                                 onClick={onClose}
