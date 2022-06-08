@@ -1,39 +1,113 @@
 import React, { useState } from 'react'
-import { Input} from 'antd'
-import InputField from '../../../componentForm/InputField'
+import classes from './TestAntdeisgn.module.scss'
+
+const data = [{
+    id:1,
+    title:'ánh1'
+},{
+    id:2,
+    title:'tuấn anh'
+},{
+    id:3,
+    title:'tanh3'
+},{
+    id:4,
+    title:'tuan anh tran'
+},{
+    id:5,
+    title:'tanh5'
+},{
+    id:6,
+    title:'tanh6'
+},{
+    id:7,
+    title:'tanh1'
+},{
+    id:8,
+    title:'tanh7'
+},{
+    id:9,
+    title:'ánh1'
+},{
+    id:10,
+    title:'nhật ánh'
+},{
+    id:11,
+    title:'tuan anh'
+}]
 
 const TestAntDesign= () =>{
-    const [valueInput, setValueInput] = useState('nhập dữ liệu')
+    const [valueInput, setValueInput] = useState([])
+    const [valueSearch, setValueSearch] = useState("")
+    const [show, setShow] = useState(false)
 
-    const HandleChange = (e) =>{
-        setValueInput(e.target.value)
-       
+    const HandleClickInput = () =>{
+        setShow(!show)
     }
-    const HandleEnter = (e) =>{
-        if(e.keyCode === 13){
-            setValueInput('')
-            console.log('data',valueInput)
+    const HandleClick = () =>{
+        setShow(!show)
+    }
+    const HandleClickItem = (item) =>{
+        const value = item.title;
+        if(valueInput.includes(value) !== true){
+            setValueInput(
+                [...valueInput, value]
+            )
         }
-        
     }
-    return(
-        <div>
-            <Input addonBefore="http://"  defaultValue="mysite" 
-                  addonAfter="https://tuananh"
-                  id={'123'}
+    const handleClear = (index) =>{
+        const newValueInput = [...valueInput];
+        newValueInput.splice(index, 1);
+        setValueInput(newValueInput);
+        setShow(true)
+    }
 
-            />
-            <div style={{width:'400px'}}>
-                <InputField 
-                    addonAfter={"anh"}
-                    addonBefore={"tuananh"}
-                    is={12313}
-                    onKeyDown={HandleEnter}
-                    value={valueInput}
-                    onChange={HandleChange}
-                />
+
+     return(
+            <div className={classes.container}>
+                <div className={classes.content}>
+                    {valueInput.length !== 0 
+                    ?<>
+                        <div className={classes.contentValue} onClick={HandleClick}>
+                            {valueInput.map((item, index) =>(
+                                <p className={classes.item} key={index} >
+                                    {item} 
+                                    <span 
+                                     className={classes.close}
+                                     onClick={() =>handleClear(index)}
+                                     >X</span>
+                                </p>
+                            ))}
+                        </div>
+                    </>
+                    :<>
+                        <div className={classes.contentInput}>
+                            <input type={'text'} className={classes.input} 
+                                value={valueSearch}
+                                onChange={e => setValueSearch(e.target.value)}
+                                onClick={HandleClickInput}
+                            />
+                        </div>
+                    </>
+                    }
+                    
+                    <div className={classes.contentOption}>
+                        {show === true
+                            ?<>
+                                {data.map((item) =>(
+                                    <p className={classes.title} key={item.id}    
+                                        onClick={()=>HandleClickItem(item)}
+                                    >
+                                        {item.title}
+                                    </p>
+                                ))}
+                            </>
+                            :<></>
+                        }
+                    
+                </div>
+                </div>
             </div>
-        </div>
     )
 }
 export default TestAntDesign
