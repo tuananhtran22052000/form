@@ -16,7 +16,7 @@
                 cursor: pointer;
                 display: flex;
                 align-items: center;
-                margin: 0 5px 5px 0;
+                margin: 0 3px 5px 0;
                 // width: 20px;
                 height: 30px;
                 border-radius: 4px;
@@ -36,10 +36,12 @@
                     margin-left: 2px
                 }
             }
-        }
-        .contentInput{
+
             .input{
-                @include size;
+                flex: 1;
+                border: none;
+                outline: none;
+                max-height: 50px;
             }
         }
         .contentOption{

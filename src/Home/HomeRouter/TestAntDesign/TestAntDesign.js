@@ -66,8 +66,6 @@ const TestAntDesign= () =>{
      return(
             <div className={classes.container}>
                 <div className={classes.content}>
-                    {valueInput.length !== 0 
-                    ?<>
                         <div className={classes.contentValue} onClick={HandleClick}>
                             {valueInput.map((item, index) =>(
                                 <p className={classes.item} key={index} >
@@ -78,18 +76,13 @@ const TestAntDesign= () =>{
                                      >X</span>
                                 </p>
                             ))}
-                        </div>
-                    </>
-                    :<>
-                        <div className={classes.contentInput}>
+                            {/* <input type={'text'} className={classes.testInput} /> */}
                             <input type={'text'} className={classes.input} 
                                 value={valueSearch}
                                 onChange={e => setValueSearch(e.target.value)}
                                 onClick={HandleClickInput}
                             />
                         </div>
-                    </>
-                    }
                     
                     <div className={classes.contentOption}>
                         {show === true
