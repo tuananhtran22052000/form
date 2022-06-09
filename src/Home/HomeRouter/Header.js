@@ -24,7 +24,6 @@ const Header = () =>{
                 <NavLink className={classes.link} activeClassName={classes.linkActive}  to='/form-upload'>form upload</NavLink>
                 <NavLink className={classes.link} activeClassName={classes.linkActive}  to='/select'>select</NavLink>
                 <NavLink className={classes.link} activeClassName={classes.linkActive}  to='/axios'>Axios</NavLink>
-                <NavLink className={classes.link} activeClassName={classes.linkActive}  to='/AntDesign'>Test Ant Design</NavLink>
             </div>
         </>
     )

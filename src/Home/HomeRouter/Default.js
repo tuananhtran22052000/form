@@ -18,7 +18,6 @@ import FormRegister from '../createForm/FormRegister'
 import FormUpload from '../createForm/FormUpload'
 import SelectDropdown from '../../componentForm/SelectDropdown'
 import CallApi from '../HomeRouter/CallApi'
-import TestAntDesign from './TestAntDesign'
 
 
 import {
@@ -52,7 +51,6 @@ const Default = () => {
                         <Route  path='/todoUser'><TodoUser /></Route>
                         <Route  path='/form-upload'><FormUpload /></Route>
                         <Route  path='/select'><Mobx /></Route>
-                        <Route  path='/AntDesign'><TestAntDesign /></Route>
                     </Switch>
                 </div>
             </Router>
