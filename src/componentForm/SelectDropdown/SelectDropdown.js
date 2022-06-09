@@ -23,6 +23,7 @@ const SelectDropdown = (props) =>{
     const [valueInput, setValueInput] = useState([]) // value dc chon
     const [search, setSearch] = useState("Nhập hoặc chọn option") // value search
     const [filterData, setFilterData] = useState([]) // data sau khi search
+    const [addOption, setAddoption] = useState("")
     const [show, setShow] = useState(false)
   
     const HandleClickInput = () =>{
@@ -64,8 +65,12 @@ const SelectDropdown = (props) =>{
         setSearch(valueSearch)
     }
     
-    // const handleClearItem = (item) =>{
-    // }
+    const handleClearItem =(item)=>{
+        const indexValue =  valueInput.indexOf(item.title)
+        const newValueInput = [...valueInput]
+        newValueInput.splice(indexValue,1)
+        setValueInput(newValueInput)
+    }
     
      return(
             <div className={classes.container}>
@@ -113,12 +118,12 @@ const SelectDropdown = (props) =>{
                                                     onClick={()=>HandleClickItem(item)}
                                                 >
                                                     {item.title}
-                                                    {/* {valueInput.includes(item.title) === true
+                                                    {valueInput.includes(item.title) === true
                                                         ?<>
                                                             <span className={classes.close} onClick={()=>handleClearItem(item)}>x</span>
                                                         </>
                                                         :<></>
-                                                    } */}
+                                                    }
                                                 </p>
                                             ))}
                                             
@@ -133,12 +138,12 @@ const SelectDropdown = (props) =>{
 
                                                 >
                                                     {item.title}
-                                                    {/* {valueInput.includes(item.title) === true
+                                                    {valueInput.includes(item.title) === true
                                                         ?<>
                                                             <span className={classes.close} onClick={()=>handleClearItem(item)}>x</span>
                                                         </>
                                                         :<></>
-                                                    } */}
+                                                    }
                                                     
                                                 </div>
                                             ))}
@@ -158,6 +163,7 @@ const SelectDropdown = (props) =>{
                                 </div>
                             </>
                         }
+                       
                 </div>
                 </div>
             </div>
