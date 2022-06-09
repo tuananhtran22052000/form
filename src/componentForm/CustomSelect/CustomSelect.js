@@ -9,7 +9,7 @@ const CustomSelect = (props) =>{
     const {
         data,
         dropTop,
-        dropAuto
+        
     } = props
                                               
     const [value, setValue] = useState('defaultValue')

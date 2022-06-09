@@ -5,7 +5,7 @@ import SelectDropdown from '../../../componentForm/SelectDropdown'
 import CustomSelect from '../../../componentForm/CustomSelect'
 import CustomInputNumber from '../../../componentForm/CustomInputNumber'
 import TestSwitch from '../../../../src/Home/createForm/TestSwitch'
-
+import Select from '../../../componentForm/Select'
 const data = [{
     id:1,
     title:'ánh1'
@@ -31,7 +31,7 @@ const data = [{
     id:8,
     title:'tanh7'
 },{
-    id:8,
+    id:11,
     title:'ánh1'
 },{
     id:9,
@@ -50,15 +50,15 @@ const Mobx = () =>{
            
             <div style={{margin:' 0 auto', display:'flex'}}>
             <div style={{width:'500px'}}>
-                <SelectDropdown 
+                <Select 
                     data={data}
-                    height={'40px'}
                     placeholder={"nhập tên"}
-                    // multiple
+                    height={'50px'}
+                    multiple
                 />
             </div>
             <div style={{width:'500px',marginLeft:'300px'}}>
-                <CustomSelect 
+                <Select 
                     // dropTop
                     data={data}
                     defaultValue={'chọn Option'}

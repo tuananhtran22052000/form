@@ -12,114 +12,138 @@ import Box from '../icon/Box.svg'
 const SelectDropdown = (props) =>{
     const {
         data,
+        width,
         height,
         placeholder,
-        multiple
+        maxTagCount
     } = props
    
 
-    const InputRef = useRef()
-
-    const [ valueSearch, setValueSearch] = useState('') 
-    const [filterData, setFilterData] = useState([])
+    const [valueInput, setValueInput] = useState([]) // value dc chon
+    const [search, setSearch] = useState("") // value search
+    const [filterData, setFilterData] = useState([]) // data sau khi search
     const [show, setShow] = useState(false)
-    
-
-    const HandleChange = (e) =>{
-        const search = e.target.value;
-       
-        const newData = data.filter((value) =>{
-            const checkValue = removeVietnameseTones(search).toLowerCase()
-            const test = removeVietnameseTones(value.title).toLowerCase()
-            return test.includes(checkValue) 
-        })
-        if(search===""){
-            setFilterData([]);
-          }else{
-            setFilterData(newData);
-          }
-          setValueSearch(search)
-    }
-
-    const HandleShow = () =>{
+  
+    const HandleClickInput = () =>{
         setShow(!show)
     }
-    const HandleShowItem =(e) =>{
-       
+    const HandleClick = () =>{
+        setShow(!show)
+    }
+    const HandleClickItem = (item) =>{
+        const value = item.title;
+            if(valueInput.includes(value) !== true){
+                setValueInput(
+                    [...valueInput, value]
+                )
+                
+            }
+        
+        
+    }
+    const handleClear = (index) =>{
+        const newValueInput = [...valueInput];
+        newValueInput.splice(index, 1);
+        setValueInput(newValueInput);
         setShow(true)
     }
-    
-    const HandleClick = (item )  =>{
-        if(!multiple){
-            setValueSearch(item.title)
-        }else{
-            setValueSearch([...valueSearch,item.title])
-        }
-        
-        setShow(false)
-    }
-    
 
-    return(
-        <div className={classes.container}>
-            <div className={classes.contentInput}>
-                <input type={'text'}
-                    style={{
-                        height:height,
-                    }} 
-                    className={classes.input} 
-                    value={valueSearch}
-                    onChange={HandleChange}
-                    onClick={HandleShowItem}
-                    placeholder={placeholder}
-                    ref={InputRef}
-                />
-                
-                <img src={arrow} alt='' className={classNames(classes.icon,show===true ? classes.IconShow : classes.IconUnShow)} onClick={HandleShow} />
-            </div>
-            <div className={classNames(classes.content)} >
-                {data.length !==0 
-                ? <>
-                    {filterData.length !== 0
-                        ?<>
-                            <div className={classNames(classes.contentShow, show===true ? classes.show : classes.unShow)}  >
-                                {filterData.slice(0,15).map((item,key) =>(
-                                    <div className={classes.title} 
-                                        key={key}
-                                        onClick={()=>HandleClick(item)}
-                                    >
-                                        <p className={classes.resultItem}  onClick={()=>HandleClick(item)}>{item.title}</p>
-                                    </div>
-                                ))}
-                            </div>
-                        </>
-                        :<>
-                            <div className={classNames(classes.contentShow, show===true ? classes.show : classes.unShow)}  >
-                                {data.map((item,key) =>(
-                                    <div className={classes.title} 
-                                        key={key}
-                                        onClick={()=>HandleClick (item)}
-                                    >
-                                        <p className={classes.resultItem}  onClick={()=>HandleClick (item)}>{item.title}</p>
-                                    </div>
-                                ))}
-                            </div>
-                        </>
-                    }
-                 </> 
-                 :<>
-                    <div className={classNames(classes.contentNull, show===true ? classes.show : classes.unShow)}>
-                        <div className={classes.row}>
-                            <div className={classes.contentImg}>
-                                <img src={Box} alt="" className={classes.iconBox} />
-                            </div>
-                            <p className={classes.title}>No Data</p>
+    const HandleChangeSearch = (e) =>{
+        const valueSearch = e.target.value
+        const newData = data.filter((value) =>{
+            const checkValueSearch = removeVietnameseTones(valueSearch).toLowerCase()
+            const checkValue = removeVietnameseTones(value.title).toLowerCase()
+            return checkValue.includes(checkValueSearch)
+        })
+        if(valueSearch === ""){
+            setFilterData([])
+        }else{
+            setFilterData(newData)
+        }
+        setSearch(valueSearch)
+    }
+    // useEffect(()=>{
+    //     console.log(valueInput.includes(1))
+    // })
+     return(
+            <div className={classes.container}>
+                <div className={classes.content}>
+                        <div className={classes.contentValue} 
+                            onClick={HandleClick}
+                            style={{
+                                width: width,
+                                minHeight: height,
+                        }}> 
+                            {valueInput.map((item, index) =>(
+                                <p className={classes.item} 
+                                    key={index} 
+                                >
+                                    {item} 
+                                    <span 
+                                     className={classes.close}
+                                     onClick={() =>handleClear(index)}
+                                     >X</span>
+                                </p>
+                            ))}
+                            {/* <input type={'text'} className={classes.testInput} /> */}
+                            <input type={'text'} className={classes.input} 
+                                value={search}
+                                onChange={HandleChangeSearch}
+                                onClick={HandleClickInput}
+                                placeholder={placeholder}
+                            />
                         </div>
-                    </div>
-                 </>}
-                           
+                    
+                    <div className={classes.contentOption}
+                        style={{
+                            width: width,
+                        }}
+                    >
+                        {data.length !== 0
+                            ?<>
+                                {filterData.length !== 0 
+                                    ?<>
+                                        <div className={classNames(classes.contentData,show ===true ? classes.showData : classes.unShow)}>
+                                            {filterData.slice(0,15).map((item) =>(
+                                                <p className={classNames(classes.title, istoggle=== true && classes.active)} 
+                                                    key={item.id}    
+                                                    onClick={()=>HandleClickItem(item)}
+                                                >
+                                                    {item.title}
+                                                </p>
+                                            ))}
+                                            
+                                        </div>
+                                    </>
+                                    :<>
+                                        <div className={classNames(classes.contentData,show ===true ? classes.showData : classes.unShow)}>
+                                            {data.map((item) =>(
+                                                <p className={classNames(classes.title, istoggle=== true && classes.active)} 
+                                                    key={item.id}    
+                                                    onClick={()=>HandleClickItem(item)}
+                                                >
+                                                    {item.title}
+                                                </p>
+                                            ))}
+                                        </div>
+                                    </>
+                                }
+                            </>
+                            :<>
+                                
+                                <div className={classNames(classes.notData,show ===true ? classes.showData : classes.unShow)}>
+                                    <div className={classes.contentNotData}>
+                                        <div>
+                                            <img src={Box} alt="" className={classes.img} />
+                                            <p className={classes.text}>NOT DATA</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </>
+                        }
+                </div>
+                </div>
             </div>
-        </div>
     )
 }
 
@@ -128,6 +152,5 @@ SelectDropdown.propTypes = {
     height: PropTypes.string.isRequired,
     data: PropTypes.array.isRequired,
     placeholder: PropTypes.string.isRequired,
-    multiple:  PropTypes.bool.isRequired
 }
 export default SelectDropdown
