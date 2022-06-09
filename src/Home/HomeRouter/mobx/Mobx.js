@@ -52,7 +52,7 @@ const Mobx = () =>{
             <div style={{width:'500px'}}>
                 <Select 
                     data={data}
-                    placeholder={"nhập tên"}
+                    // placeholder={"nhập tên"}
                     height={'50px'}
                     multiple
                 />

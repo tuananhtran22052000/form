@@ -1,4 +1,5 @@
-import React, { useState,useRef,useEffect } from 'react'
+import React, { useEffect, useState} from 'react'
+
 import classes from './SelectDropdown.module.scss'
 import classNames from 'classnames'
 import PropTypes from 'prop-types'
@@ -20,26 +21,27 @@ const SelectDropdown = (props) =>{
    
 
     const [valueInput, setValueInput] = useState([]) // value dc chon
-    const [search, setSearch] = useState("") // value search
+    const [search, setSearch] = useState("Nhập hoặc chọn option") // value search
     const [filterData, setFilterData] = useState([]) // data sau khi search
     const [show, setShow] = useState(false)
+    const [ isToggle, setIsToggle] = useState(false)
   
     const HandleClickInput = () =>{
         setShow(!show)
     }
-    const HandleClick = () =>{
-        setShow(!show)
-    }
+    // const HandleClick = () =>{
+    //     setShow(!show)
+    // }
     const HandleClickItem = (item) =>{
         const value = item.title;
             if(valueInput.includes(value) !== true){
                 setValueInput(
                     [...valueInput, value]
                 )
-                
-            }
-        
-        
+            }     
+            setIsToggle(true)
+            setSearch("")
+            console.log(item)
     }
     const handleClear = (index) =>{
         const newValueInput = [...valueInput];
@@ -51,7 +53,7 @@ const SelectDropdown = (props) =>{
     const HandleChangeSearch = (e) =>{
         const valueSearch = e.target.value
         const newData = data.filter((value) =>{
-            const checkValueSearch = removeVietnameseTones(valueSearch).toLowerCase()
+            const checkValueSearch = removeVietnameseTones(valueSearch).toLowerCase()//toLowerCase
             const checkValue = removeVietnameseTones(value.title).toLowerCase()
             return checkValue.includes(checkValueSearch)
         })
@@ -62,6 +64,9 @@ const SelectDropdown = (props) =>{
         }
         setSearch(valueSearch)
     }
+    useEffect(()=>{
+       
+    })
     
      return(
             <div className={classes.container}>
@@ -75,7 +80,7 @@ const SelectDropdown = (props) =>{
                             {valueInput.map((item, index) =>(
                                 <p className={classes.item} 
                                     key={index} 
-                                    // onClick={HandleClick}
+                                
                                 >
                                     {item} 
                                     <span 
@@ -102,9 +107,9 @@ const SelectDropdown = (props) =>{
                             ?<>
                                 {filterData.length !== 0 
                                     ?<>
-                                        <div className={classNames(classes.contentData,show ===true ? classes.showData : classes.unShow)}>
+                                        <div className={classNames(classes.contentData, show ===true ? classes.showData : classes.unShow)}>
                                             {filterData.slice(0,15).map((item) =>(
-                                                <p className={classNames(classes.title,)} 
+                                                <p className={classNames(classes.title,valueInput.includes(item.title) === true && classes.active)} 
                                                     key={item.id}    
                                                     onClick={()=>HandleClickItem(item)}
                                                 >
@@ -117,12 +122,13 @@ const SelectDropdown = (props) =>{
                                     :<>
                                         <div className={classNames(classes.contentData,show ===true ? classes.showData : classes.unShow)}>
                                             {data.map((item) =>(
-                                                <p className={classNames(classes.title,)} 
+                                                <div className={classNames(classes.title,valueInput.includes(item.title) === true && classes.active)} 
                                                     key={item.id}    
                                                     onClick={()=>HandleClickItem(item)}
+
                                                 >
                                                     {item.title}
-                                                </p>
+                                                </div>
                                             ))}
                                         </div>
                                     </>

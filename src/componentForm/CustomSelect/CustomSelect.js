@@ -9,7 +9,7 @@ const CustomSelect = (props) =>{
     const {
         data,
         dropTop,
-        
+        status,
     } = props
                                               
     const [value, setValue] = useState('defaultValue')
@@ -28,7 +28,7 @@ const CustomSelect = (props) =>{
     return(
         <div className={classes.container}>
              <img src={arrow} alt='' className={classNames(classes.icon, isToggle===true ? classes.IconShow : classes.IconUnShow)}/>
-                <div className={classes.ContentValue}
+                <div className={classNames(classes.ContentValue, status==="error" && classes.error, status==="warning" && classes.warning)}
                 onClick={HandleClick}
                 value={value}
 
