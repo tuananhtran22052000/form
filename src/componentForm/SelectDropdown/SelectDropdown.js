@@ -15,7 +15,7 @@ const SelectDropdown = (props) =>{
         width,
         height,
         placeholder,
-        maxTagCount
+        
     } = props
    
 
@@ -62,14 +62,12 @@ const SelectDropdown = (props) =>{
         }
         setSearch(valueSearch)
     }
-    // useEffect(()=>{
-    //     console.log(valueInput.includes(1))
-    // })
+    
      return(
             <div className={classes.container}>
                 <div className={classes.content}>
                         <div className={classes.contentValue} 
-                            onClick={HandleClick}
+                            
                             style={{
                                 width: width,
                                 minHeight: height,
@@ -77,6 +75,7 @@ const SelectDropdown = (props) =>{
                             {valueInput.map((item, index) =>(
                                 <p className={classes.item} 
                                     key={index} 
+                                    // onClick={HandleClick}
                                 >
                                     {item} 
                                     <span 
@@ -105,7 +104,7 @@ const SelectDropdown = (props) =>{
                                     ?<>
                                         <div className={classNames(classes.contentData,show ===true ? classes.showData : classes.unShow)}>
                                             {filterData.slice(0,15).map((item) =>(
-                                                <p className={classNames(classes.title, istoggle=== true && classes.active)} 
+                                                <p className={classNames(classes.title,)} 
                                                     key={item.id}    
                                                     onClick={()=>HandleClickItem(item)}
                                                 >
@@ -118,7 +117,7 @@ const SelectDropdown = (props) =>{
                                     :<>
                                         <div className={classNames(classes.contentData,show ===true ? classes.showData : classes.unShow)}>
                                             {data.map((item) =>(
-                                                <p className={classNames(classes.title, istoggle=== true && classes.active)} 
+                                                <p className={classNames(classes.title,)} 
                                                     key={item.id}    
                                                     onClick={()=>HandleClickItem(item)}
                                                 >
