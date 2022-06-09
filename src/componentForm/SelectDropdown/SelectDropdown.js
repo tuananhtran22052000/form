@@ -23,7 +23,6 @@ const SelectDropdown = (props) =>{
     const [valueInput, setValueInput] = useState([]) // value dc chon
     const [search, setSearch] = useState("Nhập hoặc chọn option") // value search
     const [filterData, setFilterData] = useState([]) // data sau khi search
-    const [addOption, setAddoption] = useState("")
     const [show, setShow] = useState(false)
   
     const HandleClickInput = () =>{
