@@ -55,6 +55,7 @@ const Mobx = () =>{
                     // placeholder={"nhập tên"}
                     height={'50px'}
                     multiple
+                    // disabled
                 />
             </div>
             <div style={{width:'500px',marginLeft:'300px'}}>
@@ -62,6 +63,8 @@ const Mobx = () =>{
                     // dropTop
                     data={data}
                     defaultValue={'chọn Option'}
+                    // disabled
+                    // border={'none'}
 
                 />
             </div>
@@ -76,8 +79,9 @@ const Mobx = () =>{
                     status={'error'}
                 />
             </div>
-            <div>
+            <div style={{marginLeft:'100px'}}>
                 {/* <TestSwitch /> */}
+               
             </div>
         </>
     )

@@ -15,6 +15,7 @@ const SelectDropdown = (props) =>{
         width,
         height,
         placeholder,
+        disabled,
         
     } = props
    
@@ -73,8 +74,10 @@ const SelectDropdown = (props) =>{
      return(
             <div className={classes.container}>
                 <div className={classes.content}>
-                        <div className={classes.contentValue} 
-                            
+                        <div className={classNames(
+                            classes.contentValue,
+                            disabled && classes.disabled,
+                        )} 
                             style={{
                                 width: width,
                                 minHeight: height,
@@ -91,12 +94,16 @@ const SelectDropdown = (props) =>{
                                      >X</span>
                                 </p>
                             ))}
-                            {/* <input type={'text'} className={classes.testInput} /> */}
-                            <input type={'text'} className={classes.input} 
+                            <input type={'text'} 
+                            className={classNames(
+                                classes.input,
+                                disabled && classes.inputDisabled
+                            )} 
                                 value={search}
                                 onChange={HandleChangeSearch}
                                 onClick={HandleClickInput}
                                 placeholder={placeholder}
+                                disabled={disabled}
                             />
                         </div>
                     
