@@ -14,7 +14,7 @@ const CustomSelect = (props) =>{
         border
     } = props
                                               
-    const [value, setValue] = useState('defaultValue')
+    const [value, setValue] = useState('')
     const [isToggle, setIsToggle] = useState(false)
 
     const[addData, setAddData] = useState([])
@@ -62,15 +62,14 @@ const CustomSelect = (props) =>{
                     }}
                     onClick={HandleClick}
                 >
-                {value}
+                {value ? value : "nhập hoặc chọn"}
             </div>
             {data.length !==0
                 ?<>
-                    
                     <div className={classNames(classes.content, isToggle===true ? classes.show : classes.unShow, dropTop && classes.showTop)}>
                         <div>
                             {data.map((item,key) =>(
-                                <p className={classes.title} 
+                                <p className={classNames(classes.title,value.includes(item.title)=== true && classes.active )} 
                                     key={key}
                                     onClick={() =>HandleClickValue(item)}
                                 >{item.title}</p>
@@ -78,7 +77,7 @@ const CustomSelect = (props) =>{
                         </div>
                         <div>
                             {addData.map((item,key) =>(
-                                    <p className={classes.title} 
+                                    <p className={classNames(classes.title,value.includes(item.title)=== true && classes.active )} 
                                         key={key}
                                         onClick={() =>HandleClickValue(item)}
                                     >{item.title}</p>
