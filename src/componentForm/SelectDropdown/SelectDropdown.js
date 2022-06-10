@@ -1,5 +1,4 @@
 import React, { useEffect, useState} from 'react'
-
 import classes from './SelectDropdown.module.scss'
 import classNames from 'classnames'
 import PropTypes from 'prop-types'
@@ -70,7 +69,7 @@ const SelectDropdown = (props) =>{
         newValueInput.splice(indexValue,1)
         setValueInput(newValueInput)
     }
-    
+  
      return(
             <div className={classes.container}>
                 <div className={classes.content}>
