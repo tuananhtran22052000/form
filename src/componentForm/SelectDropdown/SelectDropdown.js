@@ -1,4 +1,4 @@
-import React, { useEffect, useState} from 'react'
+import React, { useState} from 'react'
 import classes from './SelectDropdown.module.scss'
 import classNames from 'classnames'
 import PropTypes from 'prop-types'
@@ -16,7 +16,6 @@ const SelectDropdown = (props) =>{
         height,
         placeholder,
         disabled,
-        
     } = props
    
 
@@ -71,8 +70,9 @@ const SelectDropdown = (props) =>{
         setValueInput(newValueInput)
     }
   
+ 
      return(
-            <div className={classes.container}>
+            <div className={classes.container}  >
                 <div className={classes.content}>
                         <div className={classNames(
                             classes.contentValue,

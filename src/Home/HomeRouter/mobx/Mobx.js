@@ -6,6 +6,7 @@ import CustomSelect from '../../../componentForm/CustomSelect'
 import CustomInputNumber from '../../../componentForm/CustomInputNumber'
 import TestSwitch from '../../../../src/Home/createForm/TestSwitch'
 import Select from '../../../componentForm/Select'
+import {  Select as inputSelect } from 'antd';
 const data = [{
     id:1,
     title:'ánh1'
@@ -81,7 +82,7 @@ const Mobx = () =>{
             </div>
             <div style={{marginLeft:'100px'}}>
                 {/* <TestSwitch /> */}
-               
+            <inputSelect />
             </div>
         </>
     )
