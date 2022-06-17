@@ -38,13 +38,17 @@ const CustomSelect = (props) =>{
     }
 
     const HandleAdd = () =>{
+        if(!title){
+            return 
+        }else{
+            setAddData(
+                [...addData,{
+                    id: Math.floor(Math.random() * 1001),
+                    title:title,
+                }]
+            )
+        } 
         
-        setAddData(
-            [...addData,{
-                id: Math.floor(Math.random() * 1001),
-                title:title,
-            }]
-        )
         setTitle('')
         // console.log(Math.floor(Math.random() * 1001))
     }

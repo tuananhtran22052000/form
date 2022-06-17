@@ -7,6 +7,8 @@ const data =['male', 'female','other']
 const FormMethods = () =>{
     const [title, setTitle] = useState('')
     const [select, setSelect] = useState('')
+    const [customGender, setCustomGender] = useState("")
+    const [isToggle,setIsToggle] = useState(false)
     const RefSelect = useRef()
     const RefInput = useRef()
 
@@ -24,12 +26,15 @@ const FormMethods = () =>{
     switch(select){
         case 'male' :
             setTitle('hi, boy')
+            setIsToggle(false)
         break;
         case 'female':
             setTitle('hi, girl')
+            setIsToggle(false)
         break;
         case 'other':
             setTitle('')
+            setIsToggle(true)
         break;
         default:
             
@@ -37,12 +42,15 @@ const FormMethods = () =>{
   },[select])
 
    const HandleSubmit = () =>{
-       if(select === '0' || !title){
+       if(select === '0' || !title || !customGender){
            return alert('nhập và chọn đầy đủ')
         
        }
+       setTitle('')
+       setCustomGender('')
     console.log('grenDer',select)
     console.log('note',title)
+    console.log('customGender',customGender)
    }
 
    const handleClear =()=>{
@@ -73,11 +81,27 @@ const FormMethods = () =>{
                         height={'30px'}
                         placeholder={'chọn option'}
                         onChange={GrenderChange}
-                        // ref={RefSelect}
                         data={data}
-                        // disabled={'disabled'}
                         
                     />
+                </div>
+                <div>
+                    {isToggle === true
+                        ?<>
+                            <div className={classes.row}>
+                                <label className={classes.label}>Customize Gender:</label>
+                                <InputField type='text'
+                                    onClose={handleClear} 
+                                    placeholder='nhập nội dung'
+                                    value={customGender}
+                                    onChange={e =>setCustomGender(e.target.value)}
+                                    h40
+                                    paddingLeft={'5px'}
+                    />
+                            </div>
+                        </>
+                        :<></>
+                    }
                 </div>
             </div>
             <div>

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Main from './components/Main'
 
 import SelectDropdown from '../../../componentForm/SelectDropdown'
@@ -32,7 +32,7 @@ const data = [{
     title:'tanh7'
 },{
     id:11,
-    title:'ánh1'
+    title:'ánh11'
 },{
     id:9,
     title:'nhật ánh'
@@ -42,6 +42,11 @@ const data = [{
 }]
 // const data=[]
 const Mobx = () =>{
+    const [title, setTitle] = useState('')
+    const handleSubmit = (event) =>{
+      console.log(title)
+      event.preventDefault();
+    }
     return(
         <>
             <div>
@@ -82,6 +87,13 @@ const Mobx = () =>{
             </div>
             <div style={{marginLeft:'100px'}}>
                 {/* <TestSwitch /> */}
+                <form onSubmit={handleSubmit}>
+                    <label>
+                        name:
+                        <input value={title} onChange={e =>setTitle(e.target.value)} type="text" />
+                    </label>
+                    <input type='submit' value="Submit" />
+                </form>
             </div>
         </>
     )
